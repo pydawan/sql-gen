@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+archivesBaseName = 'sql-generator'
+group = 'br.org.sql.generator'
+version = 'v1.0.0'
+
+eclipse {
+//   project.natures 'org.eclipse.buildship.core.gradleprojectnature'
+   project.natures 'org.springsource.ide.eclipse.gradle.core.nature'
+}
+
+
+jar {
+   manifest {
+      attributes (
+         'Implementation-Title': 'SQL Generator',
+         'Implementation-Version': version
+      )
+   }
+}
+
+repositories { jcenter() }
+
+dependencies {
+   compile files("./lib/verify-v1.0.0.jar")
+   testCompile 'junit:junit:4.12'
+}
